@@ -11,5 +11,5 @@ jobs:
         run: |
           for url in "https://WORKER_URL_PLACEHOLDER/" "https://kbcmsziepqqqlwbmnauf.supabase.co/"; do
             case "$url" in *PLACEHOLDER*) echo "skip $url"; continue;; esac
-            curl -fsS -m 20 "$url" || echo "ping failed: $url"
+            curl -sS -m 20 -o /dev/null "$url" || echo "unreachable: $url"
           done
